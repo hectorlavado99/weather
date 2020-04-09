@@ -1,0 +1,53 @@
+{
+  "name": "weather",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "history": "^5.0.0-beta.5",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28",
+    "react": "^16.13.0",
+    "react-bootstrap": "^1.0.0-beta.17",
+    "react-bootstrap-typeahead": "^5.0.0-alpha.1",
+    "react-cookie": "^4.0.3",
+    "react-dom": "^16.13.0",
+    "react-moment": "^0.9.7",
+    "react-range": "^1.5.3",
+    "react-redux": "^7.2.0",
+    "react-router": "^6.0.0-alpha.2",
+    "react-router-dom": "^6.0.0-alpha.2",
+    "react-scripts": "3.4.0",
+    "redux": "^4.0.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom --passWithNoTests",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "^1.18.1"
+  },
+  "description": "[![Build Status](https://travis-ci.org/the-road-to-learn-react/react-router-dynamic-routes-example.svg?branch=master)](https://travis-ci.org/the-road-to-learn-react/react-router-dynamic-routes-example) [![Greenkeeper badge](https://badges.greenkeeper.io/the-road-to-learn-react/react-router-dynamic-routes-example.svg)](https://greenkeeper.io/)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "github.com/hectorlavado99/Weather_web_react"
+  },
+  "author": "hector lavado",
+  "license": "ISC"
+}
