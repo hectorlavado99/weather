@@ -39,7 +39,6 @@ function searchCity(city,setMessage){
        console.log(ressult);
     })
   } else return;
-
 }
 
 

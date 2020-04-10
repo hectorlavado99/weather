@@ -49,5 +49,4 @@ const Content = () => (
   </Routes>
 );
 
-
 export default App;
