@@ -5,7 +5,7 @@ import { useState } from 'react';
 import redux from "../redux"
 
 
-const apiKey = redux.getState()[0];
+
 var options = [];
 
 
@@ -18,7 +18,7 @@ return (
 <Typeahead
       onInputChange={(e) => searchCity(e,setMessage)}
       onChange={props.saveCity}    
-      id="menu-align-example"
+      id="search-city"
       labelKey="name"
       options={options}
       placeholder="Escribe la ciudad"
@@ -29,9 +29,10 @@ return (
 
 
 function searchCity(city,setMessage){
-
+  const apiKey = redux.getState()[0];
   if (city) {
-    axios.get(`http://localhost:8080/weather/city/${city}`)
+    console.log(apiKey);
+    axios.get(`https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apiKey}&q=${city}&language=es-es`)
     .then((response) => {
       var ressult = response.data;
        options = ressult.map(ressult =>  `${ressult.LocalizedName}-${ressult.Country.LocalizedName}`);
@@ -39,6 +40,7 @@ function searchCity(city,setMessage){
        console.log(ressult);
     })
   } else return;
+
 }
 
 

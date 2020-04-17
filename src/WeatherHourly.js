@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/weather.css';
 import FormCity from './components/FormCity';
+import ApiKey from './components/ApiKey';
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
 import Moment from 'react-moment';
@@ -18,17 +19,17 @@ class WeatherHourly extends Component {
     
 }
 
+
   saveCity = (e) => {
     const apiKey = redux.getState()[0];
     var cityKey="";
     try {
     var city = e[0].split("-");
-      axios.get(`http://localhost:8080/weather/city/${city[0]}`)
+      axios.get(`https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apiKey}&q=${city[0]}&language=es-es`)
       .then((response) => {
         cityKey=response.data[0].Key;
-    axios.get(`http://localhost:8080/weather/hourly/${cityKey}`)
+    axios.get(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${cityKey}?apikey=${apiKey}&language=es-es&metric=true`)
       .then((response) => {
-        console.log(response.data);
         var obj = JSON.parse(response.request.responseText);
         this.setState({ post: obj});
       })
@@ -41,7 +42,9 @@ class WeatherHourly extends Component {
     const {post} = this.state
     return (
       <div className="App" id="contenedor">
+        <ApiKey />
 <FormCity saveCity={this.saveCity} />
+
 <Table striped bordered hover>
 <thead>
 <tr>

@@ -21,6 +21,7 @@ const App = () => (
     <Navigation />
     <Content />
   </Router>
+  
 );
 
 const Navigation = () => (
@@ -29,11 +30,11 @@ const Navigation = () => (
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
-      <Nav.Link href="#link"><Link to="/">Inicio</Link></Nav.Link>
+      <Nav.Link href="#link"><Link id="inicio" to="/">Inicio</Link></Nav.Link>
       <NavDropdown title="Tiempo" id="basic-nav-dropdown">
-        <NavDropdown.Item ><Link to="/daily">Ver resumen diario</Link></NavDropdown.Item>
-        <NavDropdown.Item ><Link to="/detail">Ver tiempo por días</Link></NavDropdown.Item>
-        <NavDropdown.Item ><Link to="/detailhourly">Ver tiempo por horas</Link></NavDropdown.Item>
+        <NavDropdown.Item><Link id="daily-web" to="/daily">Ver resumen diario</Link></NavDropdown.Item>
+        <NavDropdown.Item ><Link id="daily" to="/detail">Ver tiempo por días</Link></NavDropdown.Item>
+        <NavDropdown.Item><Link id="hourls" to="/detailhourly">Ver tiempo por horas</Link></NavDropdown.Item>
       </NavDropdown>
     </Nav>
   </Navbar.Collapse>
@@ -48,5 +49,6 @@ const Content = () => (
     <Route path="/detailhourly" element={<WeatherHourly/>} />
   </Routes>
 );
+
 
 export default App;

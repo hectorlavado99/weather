@@ -7,7 +7,8 @@ import axios from "axios";
 import Table from 'react-bootstrap/Table';
 import Moment from 'react-moment';
 import 'moment-timezone';
-import redux from "./redux"
+import redux from "./redux";
+import ApiKey from './components/ApiKey';
 
 
 class WeatherDailyDetail extends Component {
@@ -25,10 +26,10 @@ saveCity = (e) => {
   var cityKey="";
   try {
     var city = e[0].split("-");
-    axios.get(`http://localhost:8080/weather/city/${city[0]}`)
+    axios.get(`https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apiKey}&q=${city[0]}&language=es-es`)
     .then((response) => {
       cityKey=response.data[0].Key;
-      axios.get(`http://localhost:8080/weather/daily/${cityKey}`)
+      axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${apiKey}&language=es-es&metric=true`)
       .then((response) => {
         var obj = JSON.parse(response.request.responseText);
         this.setState({ post: obj.DailyForecasts});
@@ -45,6 +46,7 @@ saveCity = (e) => {
     const {post} = this.state
         return (
           <div className="App" id="contenedor">
+            <ApiKey />
         <FormCity saveCity={this.saveCity} />
         <Table striped bordered hover>
         <thead>
