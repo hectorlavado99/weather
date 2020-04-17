@@ -18,7 +18,6 @@ class WeatherDailyDetail extends Component {
     this.state = {
         post: []
     }
-    
 }
 
 saveCity = (e) => {
