@@ -39,7 +39,6 @@ saveCity = (e) => {
   } catch (error) {
     
   }
-
 }
 
   render() {
