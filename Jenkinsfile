@@ -1,28 +1,15 @@
 pipeline {
-  agent any
-    
-  tools {nodejs "node"}
-    
-  stages {
-    
-        stage('Build') {
+    agent {
+        docker {
+            image 'node:6-alpine' 
+            args '-p 3000:3000' 
+        }
+    }
+    stages {
+        stage('Build') { 
             steps {
-                nodejs(nodeJSInstallationName: 'node', configId: '<config-file-provider-id>') {
-                    sh 'npm config ls'
-                }
+                sh 'npm install' 
             }
         }
-    
-    stage('Install dependencies') {
-      steps {
-        echo 'npm install'
-      }
     }
-     
-    stage('Test') {
-      steps {
-         sh 'npm test'
-      }
-    }      
-  }
 }
