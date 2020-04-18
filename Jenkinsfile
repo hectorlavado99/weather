@@ -7,13 +7,13 @@ pipeline {
         
     stage('Install dependencies') {
       steps {
-        sh 'npm install'
+        echo 'npm install'
       }
     }
      
     stage('Test') {
       steps {
-         echo 'npm test'
+         sh 'npm test'
       }
     }      
   }
