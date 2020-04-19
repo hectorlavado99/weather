@@ -36,7 +36,6 @@ saveCity = (e) => {
       })
   })
   } catch (error) {
-    
   }
 }
 
