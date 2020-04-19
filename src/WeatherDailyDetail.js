@@ -71,7 +71,6 @@ saveCity = (e) => {
           </div>
         );
       }
-
 };
 
 export default WeatherDailyDetail;
